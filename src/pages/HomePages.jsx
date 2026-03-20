@@ -91,7 +91,7 @@ const HomePage = () => {
                         <FiArrowRight className="ml-1 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                     </Link>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {featuredArticles.map(article => (
                         <ArticleCard key={article.id} article={article} />
                     ))}
