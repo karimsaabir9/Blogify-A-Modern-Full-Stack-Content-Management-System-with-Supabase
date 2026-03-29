@@ -129,7 +129,7 @@ const ArticleCard = ({ article }) => {
                         </div>
                         <div className="flex items-center space-x-1 text-sm">
                             <FiMessageSquare className="w-4 h-4" />
-                            <span>{0}</span>
+                            <span>{article.comments?.[0]?.count ?? article.comments?.count ?? 0}</span>
                         </div>
                     </div>
                 </div>

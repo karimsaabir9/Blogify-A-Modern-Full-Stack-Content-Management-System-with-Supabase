@@ -32,10 +32,9 @@ const ArticlesPage = () => {
   const fetchArticles = async () => {
     try {
       setLoading(true)
-      // Waan ka saaray comment_count halkan si uusan qalad u bixin
       const { data, error } = await supabase
         .from('articles')
-        .select(`*, author:author_id (username, avatar_url)`)
+        .select(`*, author:author_id (username, avatar_url), comments:comments(count)`)
         .eq('published', true)
         .order('created_at', { ascending: false })
 

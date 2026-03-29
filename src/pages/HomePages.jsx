@@ -22,7 +22,7 @@ const HomePage = () => {
             // 1. Fetch featured articles (Top 3)
             const { data: featured, error: featuredError } = await supabase
                 .from('articles')
-                .select(`*, author:author_id (username, avatar_url)`)
+                .select(`*, author:author_id (username, avatar_url), comments:comments(count)`)
                 .eq('published', true)
                 .limit(3)
 
@@ -31,7 +31,7 @@ const HomePage = () => {
             // 2. Fetch latest articles (Top 9)
             const { data: latest, error: latestError } = await supabase
                 .from('articles')
-                .select(`*, author:author_id (username, avatar_url)`)
+                .select(`*, author:author_id (username, avatar_url), comments:comments(count)`)
                 .eq('published', true)
                 .order('created_at', { ascending: false })
                 .limit(9)
